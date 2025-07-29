@@ -1,0 +1,7 @@
+<nav>
+    <a href="{% url 'index' %}">Главная</a> |
+    <a href="https://vkvideo.ru/?showAutoLoginModal=1">Источник</a>
+    {% for zodiac in zodiacs %}
+    | <a href="{% url 'horoscope-name' sign_zodiac=zodiac %}"> {{ zodiac|title }}</a>
+    {% endfor %}
+</nav>
