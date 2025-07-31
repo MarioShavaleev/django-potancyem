@@ -3,6 +3,10 @@ from . import views
 
 
 urlpatterns = [
-    path('<int:sign_zodiac>/', views.get_info_about_sign_zodiac_by_number),
-    path('<str:sign_zodiac>/', views.get_info_about_sign_zodiac, name='horoscope-name'),
+    path('', views.index, name='index'),
+    path('horoscope/<str:slug_zodiac>/', views.get_info_about_sign_zodiac, name='get_info_about_sign_zodiac'),
+
+    # было до slug
+    #path('horoscope/<int:sign_zodiac>/', views.get_info_about_sign_zodiac, name='get_info_about_sign_zodiac'),
+
 ]

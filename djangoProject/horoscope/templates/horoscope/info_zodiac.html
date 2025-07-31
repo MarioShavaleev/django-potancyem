@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-    Гороскоп для {{ sign|capfirst }}
-{% endblock %}
-{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}"> {% endblock %}
-{% block content %}
-    {% include 'includes/navbar.html' %}
-    <h1>Инфо зодиак</h1>
-    {% if description is None %}
-        <h2>Неправильный зодиак - {{ sign }}</h2>
-    {% else %}
-        <h2>{{ description }}</h2>
 
-        <h2>проверка</h2>
-    {% endif %}
+{% block title %}
+    Гороскоп для {{ zodiac.title }}
+{% endblock %}
+
+
+{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}"> {% endblock %}
+
+
+{% block content %}
+    
+    {% include 'includes/navbar.html' %}
+    
+    <h2>Инфо знака зодиака - {{ zodiac }} </h2>
+    
+    <h3>{{ zodiac.description }}</h3>
+    <h3>Известные люди со знаком зодиака {{ zodiac.title }} - {{ zodiac.peoples }}</h3>
     {% include 'includes/navbar.html' %}
 {% endblock %}

@@ -10,14 +10,18 @@
 
 
 {% block content %}
-    {% include 'includes/navbar.html' %}
+    
+    
     {% for zodiac in zodiacs %}
         <ul>
             <li>
-                <a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a>
+                <a href="{{ zodiac.get_url }}">{{ zodiac.title }}</a>
+{#                #через созданный нами метод get_url#}
+{#                <a href="{% url 'get_info_about_sign_zodiac' zodiac.id %}">{{ zodiac.title }}</a> !!!можно и так#}
             </li>
         </ul>
     {% endfor %}
     {% include 'includes/navbar.html' %}
 {% endblock %}
+
 
