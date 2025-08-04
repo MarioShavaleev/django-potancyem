@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/otziv.css' %}">{% endblock %}
+
+
+{% block title %}Меню{% endblock %}
+
+
+{% block content %}
+    <h3>Оставьте Ваш отзыв</h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-style">
+                {{ field.label }}
+                <br>
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <button class="button1">Отправить</button>
+    </form>
+
+{% endblock %}
+
+

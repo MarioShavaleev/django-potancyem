@@ -19,3 +19,8 @@ class Horoscope(models.Model):
 
     def get_url(self):
         return reverse('get_info_about_sign_zodiac', args=[self.slug])
+
+
+class Otziv(models.Model):
+    name = models.CharField(max_length=100)
+    otziv = models.TextField()
