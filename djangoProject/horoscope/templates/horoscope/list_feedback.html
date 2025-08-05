@@ -3,7 +3,8 @@
 
 {% load static %}
 
-{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/otziv.css' %}">{% endblock %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/otziv.css' %}">{% endblock %}
 
 
 {% block title %}Отзывы{% endblock %}
@@ -23,10 +24,16 @@
 
     <br>
     <br>
-    <a href="{% url 'otziv' %}">
-        <button>Оставить отзыв</button>
-
-    {% include 'includes/navbar.html' %}
+    <div style="text-align: center;">
+            <a href="{% url 'otziv' %}">
+            <button class="button1">Оставить отзыв</button>
+        <br>
+        <br>
+        <a href="{% url 'list_feedback' %}">
+            <button class="button1">Прочитать отзывы</button>
+    
+        {% include 'includes/navbar.html' %}
+    </div>
 {% endblock %}
 
 

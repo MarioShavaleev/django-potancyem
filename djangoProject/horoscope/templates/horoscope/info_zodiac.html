@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}
     Гороскоп для {{ zodiac.title }}
 {% endblock %}
 
-
-{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}"> {% endblock %}
-
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/info_zodiac.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
+    <div style="text-align: center;>
+        {% include 'includes/navbar.html' %}
+    </div>
     
-    {% include 'includes/navbar.html' %}
+    <div class="zodiac-container">
+        <div class="zodiac-header">
+            <h2>Инфо знака зодиака - {{ zodiac.title }}</h2>
+        </div>
+        
+        <div class="zodiac-description">
+            <h3>{{ zodiac.description }}</h3>
+        </div>
+        
+        <div class="zodiac-people">
+            <h3 class="zodiac-people-title">Известные люди со знаком зодиака {{ zodiac.title }}</h3>
+            <p>{{ zodiac.peoples }}</p>
+        </div>
+        
+        <div class="text-center">
+            <span class="zodiac-count">Количество человек: {{ zodiac.cost }}</span>
+        </div>
+    </div>
+    <div style="text-align: center;>
+        {% include 'includes/navbar.html' %}
+    </div>
     
-    <h2>Инфо знака зодиака - {{ zodiac }} </h2>
-    
-    <h3>{{ zodiac.description }}</h3>
-    <h3>Известные люди со знаком зодиака {{ zodiac.title }} - {{ zodiac.peoples }}!!!</h3>
-    <h4>Количество человек с этим знаком зодиака - {{ zodiac.cost }}</h4>
-    {% include 'includes/navbar.html' %}
 {% endblock %}

@@ -1,0 +1,77 @@
+/* Основные стили для страницы гороскопа */
+.zodiac-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.zodiac-header {
+    color: #6a4c93;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.zodiac-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #6a4c93, #8a5a44);
+}
+
+.zodiac-description {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.zodiac-people {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #6a4c93;
+}
+
+.zodiac-people-title {
+    color: #6a4c93;
+    margin-bottom: 0.5rem;
+}
+
+.zodiac-count {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #6a4c93;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.zodiac-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .zodiac-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}

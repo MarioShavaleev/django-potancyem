@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
-
 {% load static %}
 
-{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">{% endblock %}
-
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/main.css' %}">
+{% endblock %}
 
 {% block title %}Меню{% endblock %}
 
 
 {% block content %}
     
-    
+    <h1> Знаки зодиака </h1>
     {% for zodiac in zodiacs %}
         <ul>
             <li>
@@ -24,14 +24,17 @@
 
     <br>
     <br>
-    <a href="{% url 'otziv' %}">
-        <button>Оставить отзыв</button>
-    <br>
-    <br>
-    <a href="{% url 'list_feedback' %}">
-        <button>Прочитать отзывы</button>
+    <div style="text-align: center;">
+            <a href="{% url 'otziv' %}">
+            <button>Оставить отзыв</button>
+        <br>
+        <br>
+        <a href="{% url 'list_feedback' %}">
+            <button>Прочитать отзывы</button>
+    
+        {% include 'includes/navbar.html' %}
+    </div>
 
-    {% include 'includes/navbar.html' %}
 {% endblock %}
 
 

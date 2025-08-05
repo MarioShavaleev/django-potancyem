@@ -5,6 +5,7 @@ from horoscope import views
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 from horoscope.views import Otziv_UpdateView, OtzivView, ListFeedBack, DetailFeedBack, DoneView
+from gallery.views import GalleryView
 
 admin.site.site_header = 'Админка сайта'
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path('<int:id_otziv>/', Otziv_UpdateView.as_view(), name='update_otziv'),
     path('', include('horoscope.urls')),
     path('detail/<int:pk>/', DetailFeedBack.as_view(), name='detailFeedBack'),
+    path('load_image/', GalleryView.as_view(), name='load_image'),
 ] + debug_toolbar_urls()
