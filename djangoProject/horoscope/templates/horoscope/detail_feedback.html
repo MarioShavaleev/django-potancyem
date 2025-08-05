@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">{% endblock %}
+
+{% block title %}Отзывы{% endblock %}
+
+
+{% block content %}
+  <h2>{{otziv.name}}</h2>
+  <h3>Отзыв: {{otziv.otziv}}</h3>
+  <h4>ID отзыва: {{otziv.id}}</h4>
+{% endblock %}
+
+

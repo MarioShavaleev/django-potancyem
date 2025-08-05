@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block css_additional %} <link rel="stylesheet" href="{% static 'horoscope/css/otziv.css' %}">{% endblock %}
+
+
+{% block title %}Отзывы{% endblock %}
+
+
+{% block content %}
+    
+    <h3>Отзывы</h3>
+    
+   
+            {% for otziv in otzivs %}
+                <li>
+                    <h3> Отзыв  {{ otziv.name.upper }} - {{ otziv.otziv }} </h3>
+                </li>
+
+    {% endfor %}
+
+    <br>
+    <br>
+    <a href="{% url 'otziv' %}">
+        <button>Оставить отзыв</button>
+
+    {% include 'includes/navbar.html' %}
+{% endblock %}
+
+

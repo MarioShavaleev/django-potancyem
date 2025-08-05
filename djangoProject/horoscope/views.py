@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.urls import reverse
 from .models import Horoscope, Otziv #импортируем данные из БД
 from django.shortcuts import get_object_or_404
 from .forms import OtzivForm
 from django.views import View
+from django.views.generic import TemplateView, ListView, DetailView
 
 def index(request):
     zodiacs = Horoscope.objects.all()
@@ -25,6 +25,8 @@ def get_info_about_sign_zodiac(request, slug_zodiac:str):
 #     zodiacs = Horoscope.objects.all()
 #     data = {'zodiac': zodiac, 'zodiacs': zodiacs}
 #     return render(request, 'horoscope/info_zodiac.html', context=data)#context передал данные в info_zodiac.html
+
+
 
 
 # def otziv(request):
@@ -75,5 +77,26 @@ class Otziv_UpdateView(View):
                 return HttpResponseRedirect('/done')
             return render(request, 'horoscope/otziv.html', context={'form': form})
 
-def done(request):
-    return render(request, 'horoscope/done.html')
+# через класс View
+# class DoneView(View):
+#     def get(self, request):
+#         return render(request, 'horoscope/done.html')
+# через класс TemplateView
+class DoneView(TemplateView):
+    template_name = 'horoscope/done.html'
+
+
+
+class ListFeedBack(TemplateView):
+    template_name = 'horoscope/list_feedback.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        otzivs = Otziv.objects.all()
+        context['otzivs'] = otzivs
+        return context
+
+
+
+class DetailFeedBack(DetailView):
+    template_name = 'horoscope/detail_feedback.html'
+    model = Otziv #передает в шаблон переменную в нижнем регистре
