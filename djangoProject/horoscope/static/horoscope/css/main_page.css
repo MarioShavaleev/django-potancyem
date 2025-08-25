@@ -1,0 +1,110 @@
+/* horoscope/css/main.css */
+
+/* Основные стили для страницы меню */
+body {
+    background: linear-gradient(135deg, #bb89ef 0%, #96afd8 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для списка знаков зодиака */
+.zodiac-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.zodiac-list li {
+    margin: 15px 0;
+    transition: transform 0.3s ease;
+}
+
+.zodiac-list li:hover {
+    transform: translateX(10px);
+}
+
+.zodiac-list a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    background: rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.zodiac-list a:hover {
+    background: rgba(138, 43, 226, 0.6);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Стили для кнопок */
+.button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+button {
+    background: linear-gradient(45deg, #8a2be2, #9370db);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+    background: linear-gradient(45deg, #9370db, #8a2be2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .zodiac-list a {
+        font-size: 1.1em;
+        padding: 12px 15px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

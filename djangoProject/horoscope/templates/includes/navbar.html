@@ -1,6 +1,6 @@
 <nav>
-    <a href="{% url 'index' %}">Главная</a> |
-    <a href="https://vkvideo.ru/?showAutoLoginModal=1">Источник</a>
+    <a href="https://vkvideo.ru/?showAutoLoginModal=1">Источник</a> |
+    <a href="{% url 'index' %}">Главная</a> 
     {% for zodiac in zodiacs %}
     | <a href="{{ zodiac.get_url }}"> {{ zodiac.title }}</a>
     {% endfor %}

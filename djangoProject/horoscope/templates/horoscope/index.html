@@ -3,38 +3,34 @@
 {% load static %}
 
 {% block css_additional %}
-    <link rel="stylesheet" href="{% static 'horoscope/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'horoscope/css/main_page.css' %}">
 {% endblock %}
 
 {% block title %}Меню{% endblock %}
 
-
 {% block content %}
+<div class="container">
+    <h1>Знаки зодиаков</h1>
     
-    <h1> Знаки зодиака </h1>
-    {% for zodiac in zodiacs %}
-        <ul>
+    <ul class="zodiac-list">
+        {% for zodiac in zodiacs %}
             <li>
                 <a href="{{ zodiac.get_url }}">{{ zodiac.title }}</a>
-{#                #через созданный нами метод get_url#}
-{#                <a href="{% url 'get_info_about_sign_zodiac' zodiac.id %}">{{ zodiac.title }}</a> !!!можно и так#}
             </li>
-        </ul>
-    {% endfor %}
+        {% endfor %}
+    </ul>
 
-    <br>
-    <br>
-    <div style="text-align: center;">
-            <a href="{% url 'otziv' %}">
+    <div class="button-container">
+        <a href="{% url 'otziv' %}">
             <button>Оставить отзыв</button>
+        </a>
         <br>
         <br>
         <a href="{% url 'list_feedback' %}">
             <button>Прочитать отзывы</button>
-    
-        {% include 'includes/navbar.html' %}
+        </a>
     </div>
 
+    {% include 'includes/navbar.html' %}
+</div>
 {% endblock %}
-
-
